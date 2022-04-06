@@ -15,15 +15,15 @@ function App() {
 
   //функции открытия попапов
   function handleEditProfileClick() {
-    setPopupProfileOpened({...isPopupProfileOpen, isEditProfilePopupOpen: true});
+    setPopupProfileOpened(true);
   }
 
   function handleAddPlaceClick() {
-    setPopupPlaceOpened({...isPopupPlaceOpen, isAddPlacePopupOpen: true});
+    setPopupPlaceOpened(true);
   }
 
   function handleEditAvatarClick() {
-    setPopupAvatarOpened({...isPopupAvatarOpen, isEditAvatarPopupOpen: true});
+    setPopupAvatarOpened(true);
   }
   
   function handleCardClick(card) {
@@ -38,7 +38,6 @@ function App() {
   }
 
   return (
-  <>
     <div className = 'page'>
       <div className="page-container">
         <Header/>
@@ -73,12 +72,8 @@ function App() {
         <PopupWithForm title='Вы уверены?' name='remove' buttonText='Да' />
         
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-
-        <template className="card-template" />
       </div>
     </div>
-  </>
-
   );
 }
 

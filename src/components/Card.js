@@ -5,7 +5,7 @@ export default function Card(props) {
 
   return(
     <div className="elements__card">
-      <img className="elements__photo" src={`${props.card.link}`} alt="" onClick={handleClick}/>
+      <img className="elements__photo" src={`${props.card.link}`} alt={props.card.name} onClick={handleClick}/>
 
       <div className="elements__card-bottom">
         <p className="elements__name">{props.card.name}</p>
