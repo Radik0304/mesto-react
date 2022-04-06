@@ -1,4 +1,4 @@
-export default function PopupWithForm({title, name, isOpen, buttonText, children}) {
+export default function PopupWithForm({title, name, isOpen, buttonText, children, onClose}) {
   return(
     <section className={`popup popup_type_${name} ${isOpen ? 'popup_opened': ''}` }>
         <div className="popup__container">
@@ -7,7 +7,7 @@ export default function PopupWithForm({title, name, isOpen, buttonText, children
              {children}           
             <button type="submit" className="popup__form-save">{buttonText}</button>
           </form>
-          <button className="popup__close" type="button" />
+          <button className="popup__close" type="button" onClick={onClose}/>
         </div>
       </section>
 

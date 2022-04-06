@@ -1,19 +1,33 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import pencel from '../blocks/profile/__button-edit/pencel.svg';
 import profileButtonAdd from '../blocks/profile/__button-add/Vector.svg';
+import { api } from "../utils/Api";
+import Card from "./Card";
 
-export default function Main({onEditProfile, onAddPlace, onEditAvatar}) {
+export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
+
+  const [userInfo, setUserInfo] = React.useState({userName:'', userDescription:'', userAvatar:''});
+  const [cards, setCards] = React.useState([]);
+
+  React.useEffect(()=> {
+    Promise.all([api.getProfile(), api.getInitialCards()])
+    .then(([res, cards]) => { 
+      setUserInfo({userName: res.name, userDescription: res.about, userAvatar: res.avatar});
+      setCards(cards)
+      
+    })
+    .catch(console.log);
+  },[])
 
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__data">
-          <div className="profile__avatar avatar" onClick={onEditAvatar} />
+          <div className="profile__avatar avatar" style={{backgroundImage: `url(${userInfo.userAvatar})`}}  onClick={onEditAvatar} />
           <div className="profile__info-container">
             <div className="profile__info">
-              <h1 className="profile__name">Жак Ив Кусто</h1>
-              <p className="profile__job">Исследователь Океана</p>
+              <h1 className="profile__name">{userInfo.userName}</h1>
+              <p className="profile__job">{userInfo.userDescription}</p>
             </div>
             <button className="profile__change" type="button"  onClick={onEditProfile}>
               <img
@@ -32,17 +46,13 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar}) {
             />
           </button>
       </section>
-      <section className="elements"></section>
-
-      {/*тут был код попапа профиля*/}
-      
-      {/*тут был кода попапа добавления карточек*/}
-      
-
-      {/*тут попап картинок*/}
-
-      
-      {/*тут попап аватара был*/}
+      <section className="elements">
+      {cards.map((card) => {
+          return (
+            <Card key={card._id} card={card} onCardClick={onCardClick}/>
+          )
+        })}
+      </section>
     </main>
   )
 }
