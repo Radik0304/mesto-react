@@ -22,7 +22,7 @@
 ### Установка
 * Установить Git Bash для Windows OS ;
 * Установить Node.js ;
-* Клонировать проект на свой ПК https://github.com/Radik0304/mesto.git ;
+* Клонировать проект на свой ПК https://github.com/Radik0304/mesto-react.git ;
 * Настроить зависимости в файле package.json ;
 
 ### Работа и запуск
