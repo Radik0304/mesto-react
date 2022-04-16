@@ -1,5 +1,3 @@
-// import {renderLoading} from '../pages/index.js'
-
 class Api {
     constructor({baseUrl, headers}) {
       this._headers = headers;

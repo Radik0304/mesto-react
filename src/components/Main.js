@@ -3,33 +3,33 @@ import pencel from '../blocks/profile/__button-edit/pencel.svg';
 import profileButtonAdd from '../blocks/profile/__button-add/Vector.svg';
 import { api } from "../utils/Api";
 import Card from "./Card";
+import {CurrentUserContext}  from "../contexts/CurrentUserContext.js";
 
-export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
+export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards}) {
 
-  const [userInfo, setUserInfo] = React.useState({userName:'', userDescription:'', userAvatar:''});
-  const [cards, setCards] = React.useState([]);
+  // const [cards, setCards] = React.useState([]);
+  const currentUser = React.useContext(CurrentUserContext);
 
-  React.useEffect(()=> {
-    Promise.all([api.getProfile(), api.getInitialCards()])
-    .then(([res, cards]) => { 
-      setUserInfo({userName: res.name, userDescription: res.about, userAvatar: res.avatar});
-      setCards(cards)
-      
-    })
-    .catch(console.log);
-  },[])
+
+  // React.useEffect(()=> {
+  //   Promise.all([api.getInitialCards()])
+  //   .then(([cards]) => { 
+  //     setCards(cards)
+  //   })
+  //   .catch(console.log);
+  // },[])
 
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__data">
-          <div className="profile__avatar avatar" style={{backgroundImage: `url(${userInfo.userAvatar})`}}  onClick={onEditAvatar} />
+          <div className="profile__avatar avatar" style={{backgroundImage: `url(${currentUser.avatar})`}}  onClick={onEditAvatar} />
           <div className="profile__info-container">
             <div className="profile__info">
-              <h1 className="profile__name">{userInfo.userName}</h1>
-              <p className="profile__job">{userInfo.userDescription}</p>
+              <h1 className="profile__name">{currentUser.name}</h1>
+              <p className="profile__job">{currentUser.about}</p>
             </div>
-            <button className="profile__change" type="button"  onClick={onEditProfile}>
+            <button className="profile__change" type="button" onClick={onEditProfile}>
               <img
                 className="profile__button-edit"
                 src={pencel}
@@ -49,7 +49,7 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardCli
       <section className="elements">
       {cards.map((card) => {
           return (
-            <Card key={card._id} card={card} onCardClick={onCardClick}/>
+            <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}/>
           )
         })}
       </section>
