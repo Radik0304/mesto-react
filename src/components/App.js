@@ -58,13 +58,15 @@ function App() {
     .then((newCard) => 
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
     )
+    .catch(console.log)
   }
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
-      .then(() => {
-        setCards(cards.filter((state) => state._id !== card._id));
-      })
+      .then(() => 
+        setCards((state) => state.filter((c) => c._id !== card._id && c))
+      )
+      .catch(console.log)
   }
 
   function handleUpdateUser(user) {
@@ -77,6 +79,7 @@ function App() {
       });
       closeAllPopups()
     })
+    .catch(console.log)
   }
 
   function handleUpdateAvatar(data) {
@@ -89,6 +92,7 @@ function App() {
       });
       closeAllPopups();
     })
+    .catch(console.log)
   }
 
   function handleAddNewCard(card) {
@@ -97,6 +101,7 @@ function App() {
       setCards([newCard, ...cards]);
       closeAllPopups()
     })
+    .catch(console.log)
   }
 
   return (
