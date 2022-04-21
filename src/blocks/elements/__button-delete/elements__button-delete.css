@@ -11,6 +11,7 @@
   transition-duration: .3s;
   padding: 0;
   margin: 0;
+  display: flex;
 }
 
 .elements__button-delete:hover {

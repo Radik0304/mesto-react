@@ -6,11 +6,11 @@ export default function Card(props) {
 
   const isOwn = props.card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (
-    `elements__button-delete ${isOwn ? 'elements__button-delete' : 'elements__button-delete_hidden'}`
+    `elements__button-delete ${isOwn ? 'elements__button-delete' : 'elements__button-delete_type_hidden'}`
   );
 
-  const isLiked = props.card.likes.some((userWhoLiked)=>userWhoLiked._id === currentUser._id);
-  const cardButtonLikeClassName = `elements__button-like ${isLiked ? 'elements__button-like_active': ''}`;
+  const isLiked = props.card.likes.some(userWhoLiked=>userWhoLiked._id === currentUser._id);
+  const cardButtonLikeClassName = `elements__button-like ${isLiked ? 'elements__button-like_type_active' : ''}`;
 
   function handleClick() {
     props.onCardClick(props.card)

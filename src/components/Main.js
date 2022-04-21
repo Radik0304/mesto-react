@@ -1,23 +1,12 @@
 import React from "react";
 import pencel from '../blocks/profile/__button-edit/pencel.svg';
 import profileButtonAdd from '../blocks/profile/__button-add/Vector.svg';
-import { api } from "../utils/Api";
 import Card from "./Card";
 import {CurrentUserContext}  from "../contexts/CurrentUserContext.js";
 
 export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards}) {
 
-  // const [cards, setCards] = React.useState([]);
   const currentUser = React.useContext(CurrentUserContext);
-
-
-  // React.useEffect(()=> {
-  //   Promise.all([api.getInitialCards()])
-  //   .then(([cards]) => { 
-  //     setCards(cards)
-  //   })
-  //   .catch(console.log);
-  // },[])
 
   return (
     <main className="content">

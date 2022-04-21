@@ -57,27 +57,19 @@ class Api {
       .then(this._checkResponse)
     }
 
-    putLike(id) { //постановка лайка
+    changeLike(id, likeStatus) { //удаление и постановка лайка
       return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-        method: "PUT",
-        headers: this._headers
+          method: (likeStatus ? "PUT" : "DELETE"),
+          headers: this._headers
       })
       .then(this._checkResponse)
     }
 
-    deleteLike(id) { //удаление лайка
-      return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-        method: "DELETE",
-        headers: this._headers
-      })
-      .then(this._checkResponse)
-    }
-
-    changeAvatar(avatar) { //редактирование аватара
+    changeAvatar(link) { //редактирование аватара
       return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: "PATCH",
         headers: this._headers,
-        body: JSON.stringify(avatar)
+        body: JSON.stringify({avatar:link})
       })
       .then(this._checkResponse)
     }
