@@ -1,0 +1,12 @@
+.popup__form-save_auth-caption {
+    font-family: 'inter', 'Times New Roman', Times, serif;
+    font-size: 14px;
+    line-height: 17px;
+    min-width: 358px;
+    max-height: 27px;
+    padding: 0;
+    padding-bottom: 13px;
+    margin: auto;
+    background-color: black;
+    color: #fff;
+  }

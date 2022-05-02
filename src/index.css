@@ -4,6 +4,7 @@
 /*fonts*/
 @import url(./fonts/fonts.css);
 
+
 /*общие для страницы параметры*/
 @import url(./blocks/page/page.css);
 @import url(./blocks/page-container/page-container.css);
@@ -14,6 +15,7 @@
 
 /*avatar*/
 @import url(./blocks/avatar/avatar.css);
+
 
 /*profile*/
 @import url(./blocks/profile/__data/profile__data.css);
@@ -60,13 +62,18 @@
 @import url(./blocks/popup/__container-confirmation/popup__container-confirmation.css);
 @import url(./blocks/popup/__form-save/popup__form-save.css);
 @import url(./blocks/popup/__form-save/_disabled/popup__form-save_disabled.css);
+@import url(./blocks/popup/__form-save/_auth/popup__form-save_auth.css);
+@import url(./blocks/popup/__form-save/_auth-link/popup__form-save_auth-link.css);
+@import url(./blocks/popup/__form-save/_auth-caption/popup__form-save_auth-caption.css);
 @import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__form/_auth/popup__form_auth.css);
 @import url(./blocks/popup/__input/popup__input.css);
 @import url(./blocks/popup/__input/_type/_error/popup__input_type_error.css);
 @import url(./blocks/popup/__input/_type/_description/popup__input_type_description.css);
 @import url(./blocks/popup/__input/_type/_avatar/popup__input_type_avatar.css);
-
+@import url(./blocks/popup/__input/_type/_auth/popup__input_type_auth.css);
 @import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__title/_type/_auth/popup__title_auth.css);
 @import url(./blocks/popup/__image-container/popup__image-container.css);
 @import url(./blocks/popup/__image-photo/popup__image-photo.css);
 @import url(./blocks/popup/__image-text/popup__image-text.css);

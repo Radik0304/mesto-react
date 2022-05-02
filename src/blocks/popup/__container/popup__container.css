@@ -11,9 +11,13 @@
   margin-right: auto;
 }
 
+.popup__container_form {
+  background-color: black;
+}
 @media screen and (max-width: 900px) {
   .popup__container {
     min-width: 282px;
     min-height: 322px;
   }
 } 
+

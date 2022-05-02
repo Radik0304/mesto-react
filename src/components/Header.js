@@ -1,6 +1,6 @@
 import logo from '../blocks/header/__logo/logo.svg';
 
-export default function Header() {
+export default function Header({}) {
   return(
     <header className="header">
     <img

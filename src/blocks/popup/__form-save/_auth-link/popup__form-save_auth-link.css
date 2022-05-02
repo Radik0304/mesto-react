@@ -1,0 +1,12 @@
+.popup__form-save_auth-link {
+  background-color: black;
+  background-image: none;
+  color: #fff;
+  border: none;
+  transition-duration: .2s;
+}
+
+.popup__form-save_auth-link:hover {
+  opacity: .6;
+  cursor: pointer;
+}
